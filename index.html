@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi de Budget Personnel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Suivi de Budget Personnel</h1>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Ajouter une transaction</h2>
+            <form id="budget-form">
+                <label for="type">Type de transaction:</label>
+                <select id="type" required>
+                    <option value="revenu">Revenu</option>
+                    <option value="dépense">Dépense</option>
+                </select>
+
+                <label for="montant">Montant:</label>
+                <input type="number" id="montant" required>
+
+                <label for="categorie">Catégorie:</label>
+                <input type="text" id="categorie" placeholder="Ex: Alimentation, Logement, etc." required>
+
+                <button type="submit">Ajouter</button>
+            </form>
+        </section>
+
+        <section class="budget-summary">
+            <h2>Résumé du Budget</h2>
+            <div>
+                <p><strong>Revenus Totaux: </strong><span id="revenus">0</span> €</p>
+                <p><strong>Dépenses Totales: </strong><span id="depenses">0</span> €</p>
+                <p><strong>Solde Disponible: </strong><span id="solde">0</span> €</p>
+            </div>
+        
+            <h3>Graphique des Dépenses</h3>
+            <canvas id="budgetChart"></canvas> <!-- Ici, le graphique sera affiché -->
+        </section>
+
+        <!-- Ajout d'une section pour filtrer les transactions par période -->
+        <section class="filter-section">
+                <h3>Filtrer par période</h3>
+                <label for="filter-date">Sélectionner une période :</label>
+                <select id="filter-date">
+                <option value="all">Toutes les transactions</option>
+                <option value="today">Aujourd'hui</option>
+                <option value="this-week">Cette semaine</option>
+                <option value="this-month">Ce mois</option>
+                <option value="last-month">Mois précédent</option>
+                </select>
+        </section>
+        
+
+        <section class="transactions">
+            <h2>Historique des Transactions</h2>
+            <ul id="transactions-list">
+                <!-- Les transactions seront ajoutées ici -->
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Suivi de Budget Personnel</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
